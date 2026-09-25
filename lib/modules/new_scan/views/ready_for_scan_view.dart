@@ -53,7 +53,7 @@ class ReadyForScanView extends GetView<NewScanController> {
         CustomPrimaryButton(
           height: 40,
           label: 'Start Scan',
-          onTap: () => Get.toNamed('/new-scan/progress'),
+          onTap: controller.startScan,
         ),
       ],
     ),

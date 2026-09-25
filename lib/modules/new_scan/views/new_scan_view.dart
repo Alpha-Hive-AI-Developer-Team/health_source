@@ -15,44 +15,51 @@ class NewScanView extends GetView<NewScanController> {
   @override
   Widget build(BuildContext context) => ScanStepScaffold(
     child: Obx(
-      () => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const ScanStepTitle(
-            title: 'Select Patient',
-            subtitle: 'You can select a patient from existing records',
-          ),
-          const SizedBox(height: 20),
-          const Text('Select a patient', style: TextStyle(fontSize: 14)),
-          const SizedBox(height: 5),
-          ScanSearchField(onChanged: controller.setSearchQuery),
-          const SizedBox(height: 7),
-          if (controller.searchQuery.value.isNotEmpty)
-            ...controller.filteredPatients.map(
-              (patient) => Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: PatientResultTile(
-                  patient: patient,
-                  selected: controller.selectedPatient.value?.id == patient.id,
-                  onTap: () => controller.choosePatient(patient),
+      () => SingleChildScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ScanStepTitle(
+              title: 'Select Patient',
+              subtitle: 'You can select a patient from existing records',
+            ),
+            const SizedBox(height: 20),
+            const Text('Select a patient', style: TextStyle(fontSize: 14)),
+            const SizedBox(height: 5),
+            ScanSearchField(onChanged: controller.setSearchQuery),
+            const SizedBox(height: 7),
+            if (controller.searchQuery.value.isNotEmpty)
+              ...controller.filteredPatients.map(
+                (patient) => Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: PatientResultTile(
+                    patient: patient,
+                    selected:
+                        controller.selectedPatient.value?.id == patient.id,
+                    onTap: () => controller.choosePatient(patient),
+                  ),
                 ),
               ),
+            if (controller.searchQuery.value.isNotEmpty &&
+                controller.filteredPatients.isEmpty)
+              const Padding(
+                padding: EdgeInsets.only(top: 12),
+                child: Text(
+                  'No patients found',
+                  style: TextStyle(fontSize: 14),
+                ),
+              ),
+            SizedBox(height: 30),
+            CustomPrimaryButton(
+              height: 40,
+              label: 'Next',
+              onTap: controller.selectedPatient.value == null
+                  ? null
+                  : controller.continueToScanType,
             ),
-          if (controller.searchQuery.value.isNotEmpty &&
-              controller.filteredPatients.isEmpty)
-            const Padding(
-              padding: EdgeInsets.only(top: 12),
-              child: Text('No patients found', style: TextStyle(fontSize: 14)),
-            ),
-         SizedBox(height: 30),
-          CustomPrimaryButton(
-            height: 40,
-            label: 'Next',
-            onTap: controller.selectedPatient.value == null
-                ? null
-                : controller.continueToScanType,
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

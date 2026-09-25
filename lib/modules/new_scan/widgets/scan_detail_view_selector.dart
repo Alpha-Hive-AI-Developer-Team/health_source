@@ -15,10 +15,11 @@ class ScanDetailViewSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    height: 44,
+    height: 36,
+    padding: const EdgeInsets.all(3),
     decoration: BoxDecoration(
       color: AppColors.surface,
-      borderRadius: BorderRadius.circular(22),
+      borderRadius: BorderRadius.circular(6),
     ),
     child: Row(
       children: [
@@ -34,18 +35,17 @@ class ScanDetailViewSelector extends StatelessWidget {
       onTap: () => onChanged(label),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
-        height: 44,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: isSelected ? AppColors.primary : Colors.transparent,
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(4),
         ),
         child: Text(
           label,
           style: AppTextStyles.bodyMedium.copyWith(
             color: isSelected ? Colors.white : AppColors.grey,
-            fontWeight: FontWeight.w600,
-            fontSize: 13,
+            fontWeight: FontWeight.w500,
+            fontSize: 12,
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_assets.dart';
 import '../../core/constants/app_sizes.dart';
 import '../../core/theme/app_text_styles.dart';
 
@@ -31,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leading ??
           (showBack
               ? IconButton(
-                  icon: const Icon(Icons.arrow_back_ios_new, color: AppColors.white, size: AppSizes.iconSm),
+                  icon: Image.asset(AppAssets.backIcon, width: AppSizes.iconSm, height: AppSizes.iconSm),
                   onPressed: () => Navigator.of(context).maybePop(),
                 )
               : null),

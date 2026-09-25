@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constants/app_colors.dart';
+import '../../../core/routes/app_routes.dart';
 import '../../../core/theme/app_text_styles.dart';
+import '../../../widgets/buttons/expandable_scan_fab.dart';
 import '../controllers/profile_settings_controller.dart';
 import '../widgets/glow_divider.dart';
 import '../widgets/settings_row.dart';
@@ -14,6 +16,10 @@ class SettingsView extends GetView<ProfileSettingsController> {
   @override
   Widget build(BuildContext context) => SettingsScaffold(
     title: 'Settings',
+    floatingActionButton: ExpandableScanFab(
+      scanIcon: Icons.settings_outlined,
+      onProfileTap: () => Get.toNamed(AppRoutes.patientRecords),
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
