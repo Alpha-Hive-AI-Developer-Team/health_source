@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_source/core/constants/app_colors.dart';
 
 import '../controllers/new_scan_controller.dart';
 import '../widgets/scan_step_button.dart';
@@ -19,7 +20,7 @@ class ScanTypeView extends GetView<NewScanController> {
           const ScanStepTitle(
             title: 'Select Scan Type',
             subtitle:
-                'Tap to select the measurements you want to add in your scan',
+                'Tap to select the movements you want to add in your scan',
           ),
           const SizedBox(height: 20),
           ScanTypeOption(
@@ -29,7 +30,7 @@ class ScanTypeView extends GetView<NewScanController> {
             selected: controller.selectedScan.value == 'Full Body Scan',
             onTap: () => controller.selectedScan.value = 'Full Body Scan',
           ),
-          const SizedBox(height: 7),
+          const SizedBox(height: 10),
           ScanTypeOption(
             title: 'Jumping Jacks',
             description:
@@ -37,7 +38,7 @@ class ScanTypeView extends GetView<NewScanController> {
             selected: controller.selectedScan.value == 'Posture Scan',
             onTap: () => controller.selectedScan.value = 'Posture Scan',
           ),
-          const SizedBox(height: 7),
+          const SizedBox(height: 10),
           ScanTypeOption(
             title: 'Jumping Jacks',
             description:
@@ -45,9 +46,44 @@ class ScanTypeView extends GetView<NewScanController> {
             selected: controller.selectedScan.value == 'Balance Scan',
             onTap: () => controller.selectedScan.value = 'Balance Scan',
           ),
-          const Spacer(),
-          ScanStepButton(label: 'Next', onPressed: controller.continueToReady),
+          const SizedBox(height: 30),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Button(label: 'Next', onPressed: controller.continueToReady)),
         ],
+      ),
+    ),
+  );
+}
+class Button extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+
+  const Button({
+    required this.label,
+    required this.onPressed,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) => Material(
+    color: AppColors.primary,
+    shape:  RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+    elevation: 4,
+    child: InkWell(
+      customBorder:  RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      onTap: onPressed,
+      child: const Padding(
+        padding: EdgeInsets.all(14),
+        child: Icon(
+          Icons.arrow_forward_ios_rounded,
+          color: Colors.white,
+          size: 18,
+        ),
       ),
     ),
   );

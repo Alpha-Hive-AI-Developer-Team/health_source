@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:get/get.dart';
+import 'package:health_source/modules/new_scan/views/scan_detailed_result_view.dart';
 import '../../../data/models/patient_model.dart';
 import '../../../data/repositories/patient_repository.dart';
 
@@ -13,7 +14,16 @@ class NewScanController extends GetxController {
   final progress = 0.0.obs;
   final isScanning = false.obs;
   Timer? _timer;
+final selectedDetailView = 'Front View'.obs;
 
+  void selectDetailView(String view) => selectedDetailView.value = view;
+
+  void openDetailedResults() {
+    Get.to(
+      () => const ScanDetailedResultView(),
+      arguments: selectedPatient.value,
+    );
+  }
   @override
   void onInit() {
     super.onInit();

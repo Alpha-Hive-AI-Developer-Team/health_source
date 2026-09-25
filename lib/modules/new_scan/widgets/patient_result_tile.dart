@@ -22,6 +22,7 @@ class PatientResultTile extends StatelessWidget {
     borderRadius: BorderRadius.circular(5),
     child: Container(
       width: double.infinity,
+      height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 7),
       decoration: BoxDecoration(
         color: selected
@@ -35,23 +36,23 @@ class PatientResultTile extends StatelessWidget {
       child: Row(
         children: [
           const CircleAvatar(
-            radius: 12,
+            radius: 22,
             backgroundColor: AppColors.surfaceElevated,
             child: Icon(
               Icons.person_outline,
               color: AppColors.primary,
-              size: 14,
+              size: 20,
             ),
           ),
           const SizedBox(width: 7),
           Expanded(
             child: Text(
               patient.name,
-              style: AppTextStyles.bodyMedium.copyWith(fontSize: 9),
+              style: AppTextStyles.bodyMedium.copyWith(fontSize: 12),
             ),
           ),
           if (selected)
-            const Icon(Icons.check_circle, color: AppColors.primary, size: 14),
+            const Icon(Icons.check_circle, color: AppColors.primary, size: 20),
         ],
       ),
     ),

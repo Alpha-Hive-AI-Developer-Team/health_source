@@ -12,13 +12,13 @@ class ScanStepScaffold extends StatelessWidget {
     backgroundColor: AppColors.primaryDark,
     body: SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(3, 54, 3, 0),
+        padding: const EdgeInsets.fromLTRB(3, 140, 3, 0),
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.fromLTRB(11, 18, 11, 14),
           decoration: BoxDecoration(
             color: AppColors.black,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(12),
           ),
           child: child,
         ),

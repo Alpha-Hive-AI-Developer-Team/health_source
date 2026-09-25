@@ -16,24 +16,24 @@ class LoginSuccessView extends GetView {
       maxHeightFactor: .72,
       child: Column(
         children: [
-          Image.asset(AppAssets.loginSuccess, height: 170, fit: BoxFit.contain),
-          const SizedBox(height: 8),
+          Image.asset(AppAssets.loginSuccess, height: 248, fit: BoxFit.contain),
+          const SizedBox(height: 18),
           CustomText(
             'Yey! Login Successful',
             style: AppTextStyles.h3,
-            fontSize: 15,
+          
           ),
           const SizedBox(height: 8),
           CustomText(
             'You will be moved to home screen right now.',
             style: AppTextStyles.bodySmall,
-            fontSize: 7,
+            fontSize: 12,
             textAlign: TextAlign.center,
           ),
           CustomText(
             'Enjoy the features!',
             style: AppTextStyles.bodySmall,
-            fontSize: 7,
+            fontSize: 12,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 21),

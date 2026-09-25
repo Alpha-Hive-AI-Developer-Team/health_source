@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_source/widgets/buttons/custom_primary_button.dart';
 
 import '../controllers/new_scan_controller.dart';
 import '../widgets/patient_result_tile.dart';
@@ -22,14 +23,14 @@ class NewScanView extends GetView<NewScanController> {
             subtitle: 'You can select a patient from existing records',
           ),
           const SizedBox(height: 20),
-          const Text('Select a patient', style: TextStyle(fontSize: 8)),
+          const Text('Select a patient', style: TextStyle(fontSize: 14)),
           const SizedBox(height: 5),
           ScanSearchField(onChanged: controller.setSearchQuery),
           const SizedBox(height: 7),
           if (controller.searchQuery.value.isNotEmpty)
             ...controller.filteredPatients.map(
               (patient) => Padding(
-                padding: const EdgeInsets.only(bottom: 5),
+                padding: const EdgeInsets.only(bottom: 10),
                 child: PatientResultTile(
                   patient: patient,
                   selected: controller.selectedPatient.value?.id == patient.id,
@@ -41,12 +42,13 @@ class NewScanView extends GetView<NewScanController> {
               controller.filteredPatients.isEmpty)
             const Padding(
               padding: EdgeInsets.only(top: 12),
-              child: Text('No patients found', style: TextStyle(fontSize: 8)),
+              child: Text('No patients found', style: TextStyle(fontSize: 14)),
             ),
-          const Spacer(),
-          ScanStepButton(
+         SizedBox(height: 30),
+          CustomPrimaryButton(
+            height: 40,
             label: 'Next',
-            onPressed: controller.selectedPatient.value == null
+            onTap: controller.selectedPatient.value == null
                 ? null
                 : controller.continueToScanType,
           ),

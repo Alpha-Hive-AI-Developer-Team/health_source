@@ -31,4 +31,8 @@ class AppAssets {
       static const String identificationcard = '$_images/identificationcard.png';
          static const String successmark = '$_images/successmark.png';
              static const String create_account = '$_images/create_account.png';
+       static const String human1 = '$_images/human1.png';
+        static const String humanside1 = '$_images/humanside1.png';
+         static const String humanside2 = '$_images/humanside2.png';
 }
+

@@ -6,12 +6,12 @@ import '../../../core/theme/app_text_styles.dart';
 class ScanSummarySection extends StatelessWidget {
   final String title;
   final List<(String, String)> rows;
-  final Color valueColor;
+  final Map<String, Color> valueColors;
 
   const ScanSummarySection({
     required this.title,
     required this.rows,
-    this.valueColor = AppColors.white,
+    this.valueColors = const {},
     super.key,
   });
 
@@ -23,27 +23,28 @@ class ScanSummarySection extends StatelessWidget {
         title,
         style: AppTextStyles.bodySmall.copyWith(
           color: AppColors.white,
-          fontSize: 8,
+          fontSize: 14,
           fontWeight: FontWeight.w600,
         ),
       ),
-      const SizedBox(height: 4),
+      const SizedBox(height: 8),
       ...rows.map(
         (row) => Padding(
-          padding: const EdgeInsets.only(bottom: 2),
+          padding: const EdgeInsets.only(bottom: 6),
           child: Row(
             children: [
               Expanded(
                 child: Text(
                   row.$1,
-                  style: AppTextStyles.caption.copyWith(fontSize: 7),
+                  style: AppTextStyles.caption.copyWith(fontSize: 11, color: AppColors.white),
                 ),
               ),
               Text(
                 row.$2,
                 style: AppTextStyles.caption.copyWith(
-                  color: valueColor,
-                  fontSize: 7,
+                  color: valueColors[row.$2] ?? AppColors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],

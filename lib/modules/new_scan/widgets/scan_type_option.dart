@@ -20,27 +20,40 @@ class ScanTypeOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) => InkWell(
     onTap: onTap,
-    borderRadius: BorderRadius.circular(5),
+    borderRadius: BorderRadius.circular(10),
     child: Container(
-      padding: const EdgeInsets.fromLTRB(8, 7, 8, 7),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: selected ? AppColors.surfaceElevated : AppColors.surface,
-        borderRadius: BorderRadius.circular(5),
+        color: selected
+            ? AppColors.primary.withOpacity(0.12)
+            : AppColors.surface,
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: selected ? AppColors.primary : Colors.transparent,
+          width: 1.2,
         ),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            selected
-                ? Icons.radio_button_checked
-                : Icons.radio_button_unchecked,
-            color: selected ? AppColors.primary : AppColors.grey,
-            size: 13,
+          // Checkbox
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 150),
+            width: 18,
+            height: 18,
+            decoration: BoxDecoration(
+              color: selected ? AppColors.primary : Colors.transparent,
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(
+                color: selected ? AppColors.primary : AppColors.grey,
+                width: 1.4,
+              ),
+            ),
+            child: selected
+                ? const Icon(Icons.check, size: 13, color: Colors.white)
+                : null,
           ),
-          const SizedBox(width: 6),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,16 +61,17 @@ class ScanTypeOption extends StatelessWidget {
                 Text(
                   title,
                   style: AppTextStyles.bodyMedium.copyWith(
-                    fontSize: 9,
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
+                    color: selected ? AppColors.primary : Colors.white,
                   ),
                 ),
-                const SizedBox(height: 3),
+                const SizedBox(height: 4),
                 Text(
                   description,
                   style: AppTextStyles.caption.copyWith(
-                    fontSize: 7,
-                    height: 1.25,
+                    fontSize: 11,
+                    height: 1.3,
                   ),
                 ),
               ],

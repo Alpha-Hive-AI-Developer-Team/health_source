@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:health_source/widgets/buttons/custom_primary_button.dart';
 
 import '../../../core/constants/app_colors.dart';
 import '../../../core/theme/app_text_styles.dart';
@@ -21,16 +22,16 @@ class ReadyForScanView extends GetView<NewScanController> {
           title: 'Get Ready For Scan',
           subtitle: 'Set up positioning properly',
         ),
-        const SizedBox(height: 18),
+        const SizedBox(height: 40),
         Text(
           'Important Points to Notice:',
           style: AppTextStyles.bodySmall.copyWith(
             color: AppColors.primary,
-            fontSize: 8,
+            fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
         ),
-        const SizedBox(height: 7),
+        const SizedBox(height: 20),
         const ScanInstruction(
           number: 1,
           text: 'Place the patient in the marked area.',
@@ -47,10 +48,12 @@ class ReadyForScanView extends GetView<NewScanController> {
           number: 4,
           text: 'Avoid shaking or fast panning during scan.',
         ),
-        const Spacer(),
-        ScanStepButton(
+        // const Spacer(),
+        SizedBox(height: 60),
+        CustomPrimaryButton(
+          height: 40,
           label: 'Start Scan',
-          onPressed: () => Get.toNamed('/new-scan/progress'),
+          onTap: () => Get.toNamed('/new-scan/progress'),
         ),
       ],
     ),

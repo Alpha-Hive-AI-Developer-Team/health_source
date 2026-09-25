@@ -18,13 +18,13 @@ class ScanInstruction extends StatelessWidget {
         Text(
           '$number. ',
           style: AppTextStyles.caption.copyWith(
-            color: AppColors.primary,
-            fontSize: 8,
+            
+            fontSize: 10,
             fontWeight: FontWeight.w600,
           ),
         ),
         Expanded(
-          child: Text(text, style: AppTextStyles.caption.copyWith(fontSize: 8)),
+          child: Text(text, style: AppTextStyles.caption.copyWith(fontSize: 14)),
         ),
       ],
     ),

@@ -12,6 +12,7 @@ class CustomPrimaryButton extends StatelessWidget {
   final bool isDisabled;
   final IconData? icon;
   final double? width;
+   final double? height;
   final Color? backgroundColor;
   final Color? textColor;
 
@@ -23,6 +24,7 @@ class CustomPrimaryButton extends StatelessWidget {
     this.isDisabled = false,
     this.icon,
     this.width,
+    this.height,
     this.backgroundColor,
     this.textColor,
   });
@@ -32,7 +34,7 @@ class CustomPrimaryButton extends StatelessWidget {
     final disabled = isDisabled || isLoading;
     return SizedBox(
       width: width ?? double.infinity,
-      height: AppSizes.buttonHeight,
+      height: height ?? AppSizes.buttonHeight,
       child: ElevatedButton(
         onPressed: disabled ? null : onTap,
         style: ElevatedButton.styleFrom(

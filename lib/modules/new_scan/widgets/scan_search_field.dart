@@ -13,13 +13,13 @@ class ScanSearchField extends StatelessWidget {
     onChanged: onChanged,
     style: AppTextStyles.bodySmall.copyWith(
       color: AppColors.primaryDark,
-      fontSize: 8,
+      fontSize: 13,
     ),
     decoration: InputDecoration(
       hintText: 'Search name here',
       hintStyle: AppTextStyles.bodySmall.copyWith(
         color: AppColors.grey,
-        fontSize: 8,
+        fontSize: 13,
       ),
       suffixIcon: const Icon(Icons.search, color: AppColors.grey, size: 13),
       suffixIconConstraints: const BoxConstraints(minWidth: 28),
