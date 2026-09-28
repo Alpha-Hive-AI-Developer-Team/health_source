@@ -16,7 +16,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: ExpandableScanFab(
-        onProfileTap: () => Get.toNamed(AppRoutes.patientRecords),
+        onProfileTap: () => Get.toNamed(AppRoutes.profile),
         onSettingsTap: () => Get.toNamed(AppRoutes.settings),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
@@ -40,7 +40,7 @@ class HomeView extends GetView<HomeController> {
               GestureDetector(
                 onTap: () => Get.toNamed(AppRoutes.newScan),
                 child: Container(
-                  height: 113,
+                  height: 120,
                   decoration: BoxDecoration(
                     color: AppColors.primary,
                     borderRadius: BorderRadius.circular(8),
@@ -83,27 +83,30 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
               const SizedBox(height: 18),
-              Row(
-                children: [
-                  Text(
-                    'Patients History',
-                    style: AppTextStyles.h4.copyWith(fontSize: 16),
-                  ),
-                  const Spacer(),
-                  Text(
-                    'view all',
-                    style: AppTextStyles.caption.copyWith(
-                      color: AppColors.white,
-                      fontSize: 9,
+              GestureDetector(
+                onTap: () => Get.toNamed(AppRoutes.patientRecords),
+                child: Row(
+                  children: [
+                    Text(
+                      'Patients History',
+                      style: AppTextStyles.h4.copyWith(fontSize: 16),
                     ),
-                  ),
-                  const SizedBox(width: 3),
-                  const Icon(
-                    Icons.arrow_outward,
-                    color: AppColors.white,
-                    size: 12,
-                  ),
-                ],
+                    const Spacer(),
+                    Text(
+                      'view all',
+                      style: AppTextStyles.caption.copyWith(
+                        color: AppColors.white,
+                        fontSize: 9,
+                      ),
+                    ),
+                    const SizedBox(width: 3),
+                    const Icon(
+                      Icons.arrow_outward,
+                      color: AppColors.white,
+                      size: 12,
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 10),
               Expanded(

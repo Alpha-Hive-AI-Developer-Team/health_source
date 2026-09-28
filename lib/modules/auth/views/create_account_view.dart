@@ -45,7 +45,7 @@ class CreateAccountView extends GetView<AuthController> {
           const SizedBox(height: 18),
           Image.asset(
             AppAssets.create_account,
-            height: 112,
+            height: 280,
             width: double.infinity,
             fit: BoxFit.contain,
           ),

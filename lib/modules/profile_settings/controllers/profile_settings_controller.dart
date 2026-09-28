@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 
 class ProfileSettingsController extends GetxController {
   final nameController = TextEditingController(text: 'Josh Smith');
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
   final emailController = TextEditingController(text: 'josh@example.com');
   final phoneController = TextEditingController(text: '+1 234 567 890');
   final currentPasswordController = TextEditingController();
@@ -17,6 +19,8 @@ class ProfileSettingsController extends GetxController {
   @override
   void onClose() {
     nameController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
     emailController.dispose();
     phoneController.dispose();
     currentPasswordController.dispose();

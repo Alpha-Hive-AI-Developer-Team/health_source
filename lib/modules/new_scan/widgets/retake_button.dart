@@ -11,18 +11,17 @@ class RetakeScanButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Material(
     color: AppColors.primary,
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     child: InkWell(
-      borderRadius: BorderRadius.circular(30),
+      borderRadius: BorderRadius.circular(10),
       onTap: onPressed,
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-        alignment: Alignment.center,
+        height: 52,
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.refresh, color: Colors.white, size: 18),
+            const Icon(Icons.refresh, color: Colors.white, size: 20),
             const SizedBox(width: 8),
             Text(
               'Retake Scan',

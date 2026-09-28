@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../widgets/cards/patient_summary_card.dart';
 import '../../../widgets/text_fields/custom_search_field.dart';
@@ -22,7 +23,7 @@ class SearchView extends GetView<search.SearchController> {
                 children: [
                   IconButton(
                     onPressed: Get.back,
-                    icon: const Icon(Icons.arrow_back_ios_new, size: 16),
+                    icon: Image.asset(AppAssets.backIcon, width: 16, height: 16),
                     color: AppColors.white,
                     padding: EdgeInsets.zero,
                     constraints: const BoxConstraints.tightFor(

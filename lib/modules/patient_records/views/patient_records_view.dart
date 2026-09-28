@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_assets.dart';
 import '../../../core/theme/app_text_styles.dart';
 import '../../../data/models/patient_model.dart';
 import '../../../widgets/cards/patient_summary_card.dart';
@@ -106,7 +107,7 @@ class _Header extends StatelessWidget {
     children: [
       IconButton(
         onPressed: Get.back,
-        icon: const Icon(Icons.arrow_back_ios_new, size: 16),
+        icon: Image.asset(AppAssets.backIcon, width: 16, height: 16),
         padding: EdgeInsets.zero,
       ),
       const SizedBox(width: 2),
